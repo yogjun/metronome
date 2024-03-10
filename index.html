@@ -244,7 +244,7 @@
             let playsound = () => {
                     // https://gitee.com/yogjun/metronome/blob/master/asset_audio_muyu.mp3
                     // https://github.com/yogjun/metronome/raw/075b44fd8a1307549d53f8ff81481851e6c4a0fc/asset_audio_muyu.mp3
-                    fetch('https://github.com/yogjun/metronome/raw/075b44fd8a1307549d53f8ff81481851e6c4a0fc/asset_audio_muyu.mp3')
+                    fetch('https://yogjun.github.io/metronome/asset_audio_muyu.mp3')
                         .then(response => response.arrayBuffer())
                         .then(arrayBuffer => audioCtx.decodeAudioData(arrayBuffer))
                         .then(audioBuffer => {
