@@ -90,7 +90,7 @@
 
         document.addEventListener("DOMContentLoaded", function () {
 
-            let speed = 60, //节拍速度
+            let speed = 80, //节拍速度
                 arrClick = [],  //测速时每次点击的速度组成的数组，节拍速度取其平均值
                 clickTime = 0,  //测速点击计时器，超过 5 秒清空数组
                 s = Date.now(), //记录每一次点击的时间，下一次点击时与此时间的间隔，来计算速度
@@ -271,22 +271,22 @@
 <body>
 <header>节拍器</header>
 <section>
-    <button id="btnTest">连续点击测速</button>
+    <button id="btnTest" hidden="true">连续点击测速</button>
     <div id="msg"></div>
     <section>
         <div>
             <button id="btnSub">➖</button>
             <div id="speed1">30</div>
-            <div id="speed">60</div>
+            <div id="speed">80</div>
             <div id="speed2">120</div>
             <button id="btnAdd">➕</button>
         </div>
-        <div><input type="range" style="width:100%;" min="20" max="300" id="rangeValue" value="60"></div>
+        <div><input type="range" style="width:100%;" min="20" max="300" id="rangeValue" value="80"></div>
     </section>
     <button id="btnPlay">▶️</button>
     <button id="btnStop">⏹️</button>
 </section>
-<footer>2018-02-05 by <a href="mailto://zk1218@gmail.com">📧 mj1</a></footer>
+<footer hidden="hidden">2024-03-10 by <a href="mailto://280536928@qq.com">yogjun</a></footer>
 </body>
 
 </html>
