@@ -193,76 +193,75 @@
             let audioCtx = new AudioContext();
             /** 发声 */
 
-            let playsound = () =>{
-                let url = "http://gitee.com/yogjun/metronome/raw/master/asset_audio_muyu.mp3";
-                // https://gitee.com/yogjun/metronome/blob/master/asset_audio_muyu.mp3
-                // https://gitee.com/yogjun/metronome/raw/master/asset_audio_muyu.mp3
-                let request = new XMLHttpRequest();
-                request.open("GET", url, true);
-                request.responseType = "arraybuffer";
-                this.loading = true;
-                request.onload = () => {
-                    this.audioCtx.decodeAudioData(request.response, buffer => {
-                        this.loading = false;
-                        this.playing = true;
-                        this.buffer = buffer;
-                        handleAudioBuffer(buffer)
-                    });
-                };
-                request.send();
-            }
+                // let playsound = () =>{
+                //     let url = "http://gitee.com/yogjun/metronome/raw/master/asset_audio_muyu.mp3";
+                //     // https://gitee.com/yogjun/metronome/blob/master/asset_audio_muyu.mp3
+                //     // https://gitee.com/yogjun/metronome/raw/master/asset_audio_muyu.mp3
+                //     let request = new XMLHttpRequest();
+                //     request.open("GET", url, true);
+                //     request.responseType = "arraybuffer";
+                //     this.loading = true;
+                //     request.onload = () => {
+                //         this.audioCtx.decodeAudioData(request.response, buffer => {
+                //             this.loading = false;
+                //             this.playing = true;
+                //             this.buffer = buffer;
+                //             handleAudioBuffer(buffer)
+                //         });
+                //     };
+                //     request.send();
+                // }
+                //
+                // let handleAudioBuffer = (audioBuffer) =>{
+                //     let oscillator = audioCtx.createBufferSource();
+                //     let gainNode = audioCtx.createGain();
+                //     oscillator.buffer = audioBuffer;
+                //     oscillator.connect(gainNode);
+                //     gainNode.connect(audioCtx.destination);
+                //     gainNode.gain.setValueAtTime(0, audioCtx.currentTime);
+                //     gainNode.gain.linearRampToValueAtTime(1, audioCtx.currentTime + 0.01);
+                //     gainNode.gain.exponentialRampToValueAtTime(0.001, audioCtx.currentTime + 0.5);
+                //     oscillator.start();
+                //     oscillator.stop(audioCtx.currentTime + 0.5);
+                // }
 
-            let handleAudioBuffer = (audioBuffer) =>{
-                let oscillator = audioCtx.createBufferSource();
-                let gainNode = audioCtx.createGain();
-                oscillator.buffer = audioBuffer;
-                oscillator.connect(gainNode);
-                gainNode.connect(audioCtx.destination);
-                gainNode.gain.setValueAtTime(0, audioCtx.currentTime);
-                gainNode.gain.linearRampToValueAtTime(1, audioCtx.currentTime + 0.01);
-                gainNode.gain.exponentialRampToValueAtTime(0.001, audioCtx.currentTime + 0.5);
-                oscillator.start();
-                oscillator.stop(audioCtx.currentTime + 0.5);
-            }
+                // let playsound = () => {
+                //     let oscillator = audioCtx.createOscillator();
+                //     let gainNode = audioCtx.createGain();
+                //     oscillator.connect(gainNode);
+                //     gainNode.connect(audioCtx.destination);
+                //     // oscillator.type = 'sine';
+                //     // oscillator.frequency.setValueAtTime(220, audioCtx.currentTime);
+                //     // oscillator.frequency.linearRampToValueAtTime(50, audioCtx.currentTime + 0.1);
+                //     oscillator.frequency.value = 493.883
+                //     gainNode.gain.setValueAtTime(0, audioCtx.currentTime);
+                //     gainNode.gain.linearRampToValueAtTime(1, audioCtx.currentTime + 0.01);
+                //     gainNode.gain.exponentialRampToValueAtTime(0.001, audioCtx.currentTime + 0.5);
+                //     oscillator.start(audioCtx.currentTime);
+                //     oscillator.stop(audioCtx.currentTime + 0.5);
+                // }
 
-            // let playsound = () => {
-            //     let oscillator = audioCtx.createOscillator();
-            //     let gainNode = audioCtx.createGain();
-            //     oscillator.connect(gainNode);
-            //     gainNode.connect(audioCtx.destination);
-            //     // oscillator.type = 'sine';
-            //     // oscillator.frequency.setValueAtTime(220, audioCtx.currentTime);
-            //     // oscillator.frequency.linearRampToValueAtTime(50, audioCtx.currentTime + 0.1);
-            //     oscillator.frequency.value = 493.883
-            //     gainNode.gain.setValueAtTime(0, audioCtx.currentTime);
-            //     gainNode.gain.linearRampToValueAtTime(1, audioCtx.currentTime + 0.01);
-            //     gainNode.gain.exponentialRampToValueAtTime(0.001, audioCtx.currentTime + 0.5);
-            //     oscillator.start(audioCtx.currentTime);
-            //     oscillator.stop(audioCtx.currentTime + 0.5);
-            // }
-
-            // let playsound = () =>{
-            //     // https://gitee.com/yogjun/metronome/blob/master/asset_audio_muyu.mp3
-            //
-            //     fetch('https://gitee.com/yogjun/metronome/raw/master/asset_audio_muyu.mp3')
-            //         .then(response => response.arrayBuffer())
-            //         .then(arrayBuffer => audioCtx.decodeAudioData(arrayBuffer))
-            //         .then(audioBuffer => {
-            //             // 播放声音
-            //             let oscillator = audioCtx.createBufferSource();
-            //             let gainNode = audioCtx.createGain();
-            //             oscillator.buffer = audioBuffer;
-            //             oscillator.connect(gainNode);
-            //             gainNode.connect(audioCtx.destination);
-            //
-            //
-            //             gainNode.gain.setValueAtTime(0, audioCtx.currentTime);
-            //             gainNode.gain.linearRampToValueAtTime(1, audioCtx.currentTime + 0.01);
-            //             gainNode.gain.exponentialRampToValueAtTime(0.001, audioCtx.currentTime + 0.5);
-            //             oscillator.start();
-            //             oscillator.stop(audioCtx.currentTime + 0.5);
-            //         });
-            // }
+            let playsound = () => {
+                    // https://gitee.com/yogjun/metronome/blob/master/asset_audio_muyu.mp3
+                    // https://github.com/yogjun/metronome/raw/075b44fd8a1307549d53f8ff81481851e6c4a0fc/asset_audio_muyu.mp3
+                    fetch('https://github.com/yogjun/metronome/raw/075b44fd8a1307549d53f8ff81481851e6c4a0fc/asset_audio_muyu.mp3')
+                        .then(response => response.arrayBuffer())
+                        .then(arrayBuffer => audioCtx.decodeAudioData(arrayBuffer))
+                        .then(audioBuffer => {
+                            // 播放声音
+                            let oscillator = audioCtx.createBufferSource();
+                            let gainNode = audioCtx.createGain();
+                            oscillator.connect(gainNode);
+                            gainNode.connect(audioCtx.destination);
+                            // 设置数据
+                            oscillator.buffer = audioBuffer;
+                            gainNode.gain.setValueAtTime(0, audioCtx.currentTime);
+                            gainNode.gain.linearRampToValueAtTime(1, audioCtx.currentTime + 0.01);
+                            gainNode.gain.exponentialRampToValueAtTime(0.001, audioCtx.currentTime + 0.5);
+                            oscillator.start();
+                            oscillator.stop(audioCtx.currentTime + 0.5);
+                        });
+                }
         });
 
 
